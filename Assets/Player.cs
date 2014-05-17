@@ -37,15 +37,7 @@ public class Player : MonoBehaviour {
             {
                 var bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation) as GameObject;
                 bullet.rigidbody.velocity = new Vector3(Mathf.Cos(hana), 0, Mathf.Sin(hana)).normalized * _velocity;
-                
             }
-            
-//            for (int i = 0; i < 360; i += 20)
-//            {
-//                var rad = i * Mathf.Deg2Rad;
-//                var bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation) as GameObject;
-//                bullet.rigidbody.velocity = new Vector3(Mathf.Cos(rad), 0, Mathf.Sin(rad)).normalized * _velocity;
-//            }
         }
     }
     private void OnCollisionEnter(Collision collision)
