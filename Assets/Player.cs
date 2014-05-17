@@ -3,7 +3,10 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	// Use this for initialization
+    public float _speed = 1.0f;
+    public float _force = 1.0f;
+    public bool jump;
+    // Use this for initialization
 	void Start () {
 	}
 
@@ -11,13 +14,22 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-        if (Input.GetKey("up"))
-            transform.Translate(0, 0, 0.1f);
-        else if (Input.GetKey("down"))
-            transform.Translate(0, 0, -0.1f);
-        else if (Input.GetKey("left"))
-            transform.Translate(-0.1f, 0, 0);
-        else if (Input.GetKey("right"))
-            transform.Translate(0.1f, 0, 0);
+        var x = Input.GetAxis("Horizontal");
+        var z = Input.GetAxis("Vertical");
+        transform.Translate(new Vector3(x, 0, z) * _speed);
+        if (!jump && Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+            rigidbody.AddForce(transform.up * _force, ForceMode.Impulse);
+        }
+
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Floor")
+        {
+            jump = false;
+        }
+    }
+
 }
