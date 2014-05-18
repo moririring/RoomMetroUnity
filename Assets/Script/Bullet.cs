@@ -4,6 +4,8 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
     private float _timeNow = 0;
     public float TimeDel = 0.5f;
+    public GameObject _gameObject;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -24,6 +26,10 @@ public class Bullet : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
+            var particle = Instantiate(_gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+            Destroy(particle, 2.0f);
+            Score.ScoreCount++;
         }
+
     }
 }

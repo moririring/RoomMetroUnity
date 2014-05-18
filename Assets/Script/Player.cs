@@ -46,6 +46,10 @@ public class Player : MonoBehaviour {
         {
             _jump = false;
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            GameOver._GameOver = true;
+        }
     }
 
 }

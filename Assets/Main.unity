@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 506321514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!1 &773465122
@@ -305,10 +305,10 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: .0500000007
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &773465128
 MonoBehaviour:
@@ -321,6 +321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dbc708e282e4c546945965114cdb35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: .100000001
+  _force: 5
+  _velocity: 30
+  _hanas: 20
+  _bulletPrefab: {fileID: 100000, guid: a1a6292c40a534e4fbe8d7f67b9cbf67, type: 2}
 --- !u!1 &1580338704
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +385,50 @@ Transform:
   m_GameObject: {fileID: 1580338704}
   m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!1 &2003041540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2003041542}
+  - 114: {fileID: 2003041541}
+  m_Layer: 0
+  m_Name: EnemyGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2003041541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003041540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91be053445b9223449d767c3009cf5e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObject: {fileID: 100000, guid: e3b3e60f7c333f748b238062b49902ec, type: 2}
+  Power: 1
+  LimitX: 5
+  LimitZ: 5
+  Y: 5
+  Interval: 100
+--- !u!4 &2003041542
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2003041540}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.96046448e-08, y: 0, z: -8.94069672e-08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
